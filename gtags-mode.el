@@ -358,13 +358,15 @@ rely on their original or user configured default behavior."
     (add-hook 'xref-backend-functions #'gtags-mode--local-plist)
     (add-hook 'completion-at-point-functions #'gtags-mode-completion-function)
     (add-hook 'after-save-hook #'gtags-mode--after-save-hook)
-    (advice-add imenu-create-index-function :before-until #'gtags-mode--imenu-advice))
+    ;;(advice-add imenu-create-index-function :before-until #'gtags-mode--imenu-advice)
+    )
    (t
     (remove-hook 'project-find-functions #'gtags-mode-project-backend)
     (remove-hook 'xref-backend-functions #'gtags-mode--local-plist)
     (remove-hook 'completion-at-point-functions #'gtags-mode-completion-function)
     (remove-hook 'after-save-hook #'gtags-mode--after-save-hook)
-    (advice-remove imenu-create-index-function #'gtags-mode--imenu-advice))))
+    ;;(advice-remove imenu-create-index-function #'gtags-mode--imenu-advice)
+    )))
 
 (provide 'gtags-mode)
 ;;; gtags-mode.el ends here
